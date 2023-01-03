@@ -38,9 +38,10 @@ jobs:
     needs: build
     uses: pratikmca/demo-action/.github/workflows/publish-to-azure.yaml@main
     with:
+      app-name: "demo-actions"
       envName: "Development"
       envUrl: "https://demo-actions-dev.azurewebsites.net/"
-      slotName: "dev"
+      slotName: "demo-actions-dev"
       artifactName: "demoapi"
     secrets:
       AZUREAPPSERVICE_PUBLISHPROFILE_961AE0608C534B4A84659B4F47EC496A: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_961AE0608C534B4A84659B4F47EC496A }}
@@ -49,9 +50,10 @@ jobs:
     needs: Development
     uses: pratikmca/demo-action/.github/workflows/publish-to-azure.yaml@main
     with:
+      app-name: "demo-actions"
       envName: "Production"
       envUrl: "https://demo-actions.azurewebsites.net/"
-      slotName: "Production"
+      slotName: "demo-actions"
       artifactName: "demoapi"
     secrets:
       AZUREAPPSERVICE_PUBLISHPROFILE_961AE0608C534B4A84659B4F47EC496A: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_961AE0608C534B4A84659B4F47EC496A }}
