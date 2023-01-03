@@ -41,7 +41,7 @@ jobs:
       app-name: "demo-actions"
       envName: "Development"
       envUrl: "https://demo-actions-dev.azurewebsites.net/"
-      slotName: "demo-actions-dev"
+      slotName: "Development"
       artifactName: "demoapi"
     secrets:
       AZUREAPPSERVICE_PUBLISHPROFILE_961AE0608C534B4A84659B4F47EC496A: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_961AE0608C534B4A84659B4F47EC496A }}
@@ -53,7 +53,7 @@ jobs:
       app-name: "demo-actions"
       envName: "Production"
       envUrl: "https://demo-actions.azurewebsites.net/"
-      slotName: "demo-actions"
+      slotName: "Production"
       artifactName: "demoapi"
     secrets:
       AZUREAPPSERVICE_PUBLISHPROFILE_961AE0608C534B4A84659B4F47EC496A: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_961AE0608C534B4A84659B4F47EC496A }}
