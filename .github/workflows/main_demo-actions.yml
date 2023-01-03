@@ -38,7 +38,6 @@ jobs:
     needs: build
     uses: pratikmca/demo-action/.github/workflows/publish-to-azure.yaml@main
     with:
-      app-name: "demo-actions"
       envName: "Development"
       envUrl: "https://demo-actions-dev.azurewebsites.net/"
       slotName: "Development"
@@ -50,7 +49,6 @@ jobs:
     needs: Development
     uses: pratikmca/demo-action/.github/workflows/publish-to-azure.yaml@main
     with:
-      app-name: "demo-actions"
       envName: "Production"
       envUrl: "https://demo-actions.azurewebsites.net/"
       slotName: "Production"
