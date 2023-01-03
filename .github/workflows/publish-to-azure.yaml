@@ -1,0 +1,54 @@
+name: Publish to Azure
+
+# Run on call from other workflow
+on:
+  workflow_call:
+    inputs:
+      envName:
+        description: "The environment to deploy to (Development or Production)"
+        required: true
+        default: "Development"
+        type: string
+      envUrl:
+        description: "The URL to deploy to"
+        required: true
+        default: "https://demo-actions-dev.azurewebsites.net/"
+        type: string
+      slotName:
+        description: "The Azure Web App Slot to deploy the app to"
+        required: true
+        default: "staging"
+        type: string
+      artifactName:
+        description: "The name of the artifact uploaded with actions/upload-artifact"
+        required: true
+        type: string
+    secrets:
+      AZUREAPPSERVICE_PUBLISHPROFILE_961AE0608C534B4A84659B4F47EC496A:
+        required: true
+
+jobs:
+  deploy:
+    
+    name: Deploy to ${{ inputs.releaseType }}
+    environment: 
+      name: ${{ inputs.envName }}
+      url: ${{ inputs.envUrl }}
+    
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Download artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: ${{ inputs.artifactName }}
+        path: ./demoActions
+        
+    - name: 'Deploy to ${{ inputs.envName }} '
+      uses: azure/webapps-deploy@v2
+      with: 
+        app-name: demo-actions
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_961AE0608C534B4A84659B4F47EC496A }}
+        package: ./demoActions 
+        slot-name: ${{ inputs.slotName }}
