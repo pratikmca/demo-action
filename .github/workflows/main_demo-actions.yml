@@ -31,7 +31,7 @@ jobs:
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
-          name: .net-app
+          name: demoapi
           path: ${{env.DOTNET_ROOT}}/myapp
   
   Development:
@@ -41,7 +41,7 @@ jobs:
       envName: "Development"
       envUrl: "https://demo-actions-dev.azurewebsites.net/"
       slotName: "dev"
-      artifactName: "myapp"
+      artifactName: "demoapi"
     secrets:
       AZUREAPPSERVICE_PUBLISHPROFILE_961AE0608C534B4A84659B4F47EC496A: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_961AE0608C534B4A84659B4F47EC496A }}
 
@@ -52,7 +52,7 @@ jobs:
       envName: "Production"
       envUrl: "https://demo-actions.azurewebsites.net/"
       slotName: "Production"
-      artifactName: "myapp"
+      artifactName: "demoapi"
     secrets:
       AZUREAPPSERVICE_PUBLISHPROFILE_961AE0608C534B4A84659B4F47EC496A: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_961AE0608C534B4A84659B4F47EC496A }}
     
