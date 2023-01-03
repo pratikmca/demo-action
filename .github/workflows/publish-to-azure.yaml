@@ -17,7 +17,7 @@ on:
       slotName:
         description: "The Azure Web App Slot to deploy the app to"
         required: true
-        default: "staging"
+        default: "demo-actions-dev"
         type: string
       artifactName:
         description: "The name of the artifact uploaded with actions/upload-artifact"
