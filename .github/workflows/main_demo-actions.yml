@@ -38,7 +38,7 @@ jobs:
     needs: build
     uses: pratikmca/demo-action/.github/workflows/publish-to-azure.yaml@main
     with:
-      envName: "Development"
+      envName: "dev"
       envUrl: "https://demo-actions-dev.azurewebsites.net/"
       slotName: "dev"
       artifactName: "demoapi"
