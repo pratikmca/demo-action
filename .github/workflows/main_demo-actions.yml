@@ -43,7 +43,7 @@ jobs:
       slotName: "Development"
       artifactName: "demoapi"
     secrets:
-      AZURE_WEBAPP_PUBLISH_PROFILE: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_DEV }}
+      AZURE_WEBAPP_PUBLISH_PROFILE: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
 
   Production:
     needs: Development
@@ -54,5 +54,5 @@ jobs:
       slotName: "Production"
       artifactName: "demoapi"
     secrets:
-      AZURE_WEBAPP_PUBLISH_PROFILE: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_PROD }}
+      AZURE_WEBAPP_PUBLISH_PROFILE: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
     
