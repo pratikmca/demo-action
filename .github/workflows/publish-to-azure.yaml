@@ -7,8 +7,8 @@ on:
       envName:
         description: "The environment to deploy to (Development or Production)"
         required: true
-        default: Development
-        type: environment
+        default: dev
+        type: string
       envUrl:
         description: "The URL to deploy to"
         required: true
