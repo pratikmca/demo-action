@@ -23,10 +23,6 @@ on:
         description: "The name of the artifact uploaded with actions/upload-artifact"
         required: true
         type: string
-    secrets:
-      AZURE_WEBAPP_PUBLISH_PROFILE:
-        required: true
-
 jobs:
   deploy:
     
@@ -50,6 +46,6 @@ jobs:
       uses: azure/webapps-deploy@v2
       with: 
         app-name: 'demo-actions(dev)'
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        publish-profile: ${{ dev.secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         package: ./demoActions 
         slot-name: ${{ inputs.slotName }}
