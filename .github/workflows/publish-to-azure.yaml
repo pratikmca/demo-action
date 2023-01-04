@@ -17,7 +17,7 @@ on:
       slotName:
         description: "The Azure Web App Slot to deploy the app to"
         required: true
-        default: "Development"
+        default: "dev"
         type: string
       artifactName:
         description: "The name of the artifact uploaded with actions/upload-artifact"
@@ -30,7 +30,7 @@ on:
 jobs:
   deploy:
     
-    name: Deploy to ${{ inputs.releaseType }}
+    name: Deploy to ${{ inputs.envName }}
     environment: 
       name: ${{ inputs.envName }}
       url: ${{ inputs.envUrl }}
