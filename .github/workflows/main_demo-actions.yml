@@ -34,19 +34,19 @@ jobs:
           name: demoapi
           path: ${{env.DOTNET_ROOT}}/myapp
   
-  Development:
+  dev:
     needs: build
     uses: pratikmca/demo-action/.github/workflows/publish-to-azure.yaml@main
     with:
       envName: "Development"
       envUrl: "https://demo-actions-dev.azurewebsites.net/"
-      slotName: "Development"
+      slotName: "dev"
       artifactName: "demoapi"
     secrets:
       AZURE_WEBAPP_PUBLISH_PROFILE: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
 
   Production:
-    needs: Development
+    needs: dev
     uses: pratikmca/demo-action/.github/workflows/publish-to-azure.yaml@main
     with:
       envName: "Production"
